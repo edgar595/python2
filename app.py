@@ -5,11 +5,11 @@ from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import pandas as pd
 
-# Specify the file path
-file_path = r"C:\Users\USER\OneDrive\Desktop\data analysis\Python\kills\modified_globalterrorismdb_0718dist.csv"
+# GitHub URL for the data
+github_data_url = "https://raw.githubusercontent.com/edgar595/python2/main/modified_globalterrorismdb_0718dist.csv"
 
-# Read the CSV file into a DataFrame
-terr2= pd.read_csv(file_path)
+# Read the CSV file from the GitHub URL into a DataFrame
+terr2 = pd.read_csv(github_data_url)
 
 location1 = terr2[['country_txt', 'latitude', 'longitude']]
 list_locations = location1.set_index('country_txt')[['latitude', 'longitude']].T.to_dict('dict')
